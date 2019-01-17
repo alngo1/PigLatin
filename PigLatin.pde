@@ -1,10 +1,13 @@
+int wordStart = 0;
+int wordEnd = 0;
 public void setup() 
 {
 	String[] lines = loadStrings("words.txt");
 	System.out.println("there are " + lines.length + " lines");
 	for (int i = 0 ; i < lines.length; i++) 
 	{
-	  System.out.println(pigLatin(lines[i]));
+	  //System.out.println(pigLatin(lines[i]));
+	  System.out.println(findWordCount(lines[i]));
 	}
 }
 public void draw()
@@ -22,6 +25,29 @@ public int findFirstVowel(String sWord)
     	}
     }
 	return -1;
+}
+
+public int findWordCount(String line)
+//precondition: know the number of words in sWord
+//postcondition: returns number of words in sWord
+{
+	int count = 0;
+	for(int i = 0; i < sWord.length(); i++){
+		if(sWord.substring(i, i+1).equals(" ") || sWord.substring(i, i+1).equals(",") || sWord.substring(i, i+1).equals(".")){
+			count ++;
+		}
+	}
+	return count;
+}
+
+public Array wordsToArray(String line)
+//precondition: separate words.
+//postcondition: all words in an array
+{
+	
+	for(int i = 0; i < line.length(); i++){
+		if()
+	}
 }
 
 
@@ -47,3 +73,22 @@ public String pigLatin(String sWord)
 		return "ERROR!";
 	}
 }
+	/*
+	if(findFirstVowel(sWord) == -1)
+	{
+		return sWord + "ay";
+	}
+	else if(findFirstVowel(sWord) == 0){
+		return sWord+ "way";
+	}
+	else if(sWord.substring(0,2).equals("qu")){
+		return sWord.substring(2) + "quay";
+	}
+	else if(findFirstVowel(sWord) != 0){
+		return sWord.substring(findFirstVowel(sWord)) + sWord.substring(0, findFirstVowel(sWord)) + "ay";
+	}
+	else
+	{
+		return "ERROR!";
+	}
+	*/
